@@ -1,4 +1,10 @@
-sap.ui.define(["sap/m/Text"],function(Text){
+sap.ui.define(["sap/ui/core/mvc/XMLView"],function(XMLView){
 "use strict";
-new Text({ text : "hello bro"}).placeAt("cont");
+
+ XMLView.create({
+  id: "First",
+  viewName: "sap.training.exc.view.First"
+ }).then(function(e){
+   e.placeAt("cont");
+ });
 });
