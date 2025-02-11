@@ -1,7 +1,14 @@
 <mvc:View controllerName="sap.training.exc.controller.First"   
 xmlns:mvc="sap.ui.core.mvc"   
 xmlns = "sap.m"
+displayBlock="true"
 >
-<Button text="Hello bro" press=".OnSayHello"></Button>
-
+<!-- <Button text="Hello bro" press=".OnSayHello"></Button> -->
+<Shell>
+  <App>
+    <pages>
+      <mvc:XMLView viewName="sap.training.exc.view.Overview"/>
+    </pages>
+  </App>
+</Shell>
 </mvc:View>

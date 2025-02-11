@@ -5,8 +5,11 @@ sap.ui.define(
 ],function(Controller,MessageBox){
   "use strict";
   return Controller.extend("sap.training.exc.controller.First",{
-    OnSayHello : function(){
-        MessageBox.information("Surprise")
+    // OnSayHello : function(){
+    //     MessageBox.information("Surprise")
+    // }
+    onInit: function () {
+      this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
     }
   });
 });
