@@ -3,6 +3,7 @@
           xmlns:f="sap.ui.layout.form"
           xmlns:core="sap.ui.core"
           xmlns="sap.m"
+          
           core:require="{formatter: 'sap/training/exc/model/formatter'}">
 
     <Page title="Flight Customers">
@@ -15,7 +16,8 @@
             <Toolbar>
               <content>
                 <ToolbarSpacer/>
-                <Button icon="sap-icon://create" text="Create Customer" press=".onSave"/>
+                <Button icon="sap-icon://create" text="Create Customer" press=".onSave"  
+                enabled="{= ${customer>/CustomerName} !== undefined &amp;&amp; ${customer>/CustomerName}.length > 0 }"/>
               </content>
             </Toolbar>
           </f:toolbar>
@@ -24,7 +26,7 @@
             <Label text="Form"/>
             <Input value="{customer>/Form}"/>
             <Label text="Customer Name"/>
-            <Input value="{customer>/CustomerName}"/>
+            <Input value="{customer>/CustomerName}" valueLiveUpdate="true"/>
             <Label text="Discount"/>
             <Input
             value="{
@@ -120,7 +122,7 @@
     formatOptions: {showMeasure: false}
   }"
   unit="{ForeignCurrency}"/>
-        <Text text="{IsCancelled}"/>
+  <core:Icon src="{=${IsCancelled} === 'X' ? 'sap-icon://cancel' : 'sap-icon://accept'}" tooltip="{=${IsCancelled} === 'X' ? 'cancelled' : 'not cancelled'}"></core:Icon>      
       </cells>
     </ColumnListItem>
   </items>
