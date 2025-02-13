@@ -53,9 +53,9 @@
       </content>
     </Panel>
     <Panel >
-    <Table id="customerTable" growing="true" growingThreshold="5"
+    <Table id="customerTable" growing="true" growingThreshold="8"
     mode="SingleSelectLeft" selectionChange=".onCustomerChange"
-    class="sapUiResponsiveMargin" width="auto" items="{ path : '/Customers', 
+    class="sapUiResponsiveMargin" width="auto" items="{ path : '/UX_Customer', 
                                                       sorter: [ 
                                                      { path : 'City', group : true },  
                                                      { path: 'CustomerName' , descending : true }]}">
