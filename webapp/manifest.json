@@ -67,7 +67,9 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
                     "bundleName": "sap.training.exc.i18n.i18n",
-                    "supportedLocales": [""],
+                    "supportedLocales": [
+                        ""
+                    ],
                     "fallbackLocale": ""
                 }
             },
@@ -80,7 +82,6 @@
                     "earlyRequests": true
                 }
             }
-            
         },
         "handleValidation": true,
         "resources": {
@@ -97,34 +98,44 @@
                 "async": true,
                 "viewPath": "sap.training.exc.view",
                 "controlAggregation": "pages",
-                "controlId": "app"
+                "controlId": "app",
+                "bypassed": {
+                    "target": [
+                        "notFound"
+                    ]
+                }
             },
             "routes": [
                 {
                     "name": "overview",
                     "pattern": "",
                     "target": [
-                      "overview"
+                        "overview"
                     ]
-                  },
-                  {
+                },
+                {
                     "name": "detail",
                     "pattern": "detail",
                     "target": [
-                      "detail"
+                        "detail"
                     ]
-                  }
+                }
             ],
             "targets": {
                 "overview": {
-                "viewId": "overview",
-                "viewName": "Overview",
-                "viewLevel": 1
+                    "viewId": "overview",
+                    "viewName": "Overview",
+                    "viewLevel": 1
                 },
                 "detail": {
                     "viewId": "detail",
                     "viewName": "Detail",
                     "viewLevel": 2
+                },
+                "notFound": {
+                    "viewId": "notFound",
+                    "viewName": "NotFound",
+                    "transition": "show"
                 }
             }
         },
