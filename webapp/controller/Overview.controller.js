@@ -1,6 +1,5 @@
 sap.ui.define([
   "sap/ui/core/mvc/Controller",
-  "sap/ui/core/syncStyleClass",
   "sap/ui/model/json/JSONModel",
   "sap/ui/model/Filter",
   "sap/ui/model/FilterOperator",
@@ -9,7 +8,7 @@ sap.ui.define([
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, syncStyleClass, JSONModel, Filter, FilterOperator, MessageToast) {
+  function (Controller, JSONModel, Filter, FilterOperator, MessageToast) {
     "use strict";
 
     return Controller.extend("sap.training.exc.controller.Overview", {
@@ -69,9 +68,14 @@ sap.ui.define([
         var oBinding = oTable.getBinding("items");
         oBinding.filter(aFilter);
       },
-      onNavToDetails: function () {
+      onNavToDetails: function (oEvent) {
+        var oItem = oEvent.getSource();
         var oRouter = this.getOwnerComponent().getRouter();
-        oRouter.navTo("detail");
+
+        oRouter.navTo("detail", {
+          customerId: oItem.getBindingContext().getPath().substring("/UX_Customer".length)
+        });
+        
       }
 
     });
